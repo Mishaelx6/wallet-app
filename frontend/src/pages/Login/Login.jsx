@@ -75,14 +75,14 @@ const Login = () => {
             </div>
             <div className='form__control'>
             <input
-                type='password'
-                name='password'
-                id='password'
-                value={password}
-                onChange={onChange}
-                placeholder='please enter password'
-                required
-              />
+              type='password'
+              name='password'
+              id='password'
+              value={password}
+              onChange={onChange}
+              placeholder='please enter password'
+              required
+            />
             </div>
             <button className='btn'>login</button>
             <p className='small__text'>
