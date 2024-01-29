@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js", // Adjust the entry point to your Node.js application
+      "use": "@now/node" // Specify the builder for Node.js applications
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/server.js" // Adjust the destination to your main server file
+    }
+  ],
+  "env": {
+    "MONGODB_URI": "@your-mongodb-uri" // Add your MongoDB connection string as an environment variable
+  },
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "nodejs12.x",
+      "memory": 512
+    }
+  }
+}
