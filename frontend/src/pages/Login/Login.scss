@@ -1,7 +1,7 @@
 @import '../../Helper/helper.scss';
 
 .login {
-  height: 100vh;
+  height: 70vh;
   font-weight: 500;
   flex-direction: column;
   @include flexPreset();
@@ -56,4 +56,17 @@
       color: $primaryColor;
     }
   }
+}
+
+.logocontainer{
+  display:flex;
+  width: 40%;
+}
+
+.applogo{
+  width: 20%;
+}
+
+.apptext{
+  margin-top:1.7rem;
 }

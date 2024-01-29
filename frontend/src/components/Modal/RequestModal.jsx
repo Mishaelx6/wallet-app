@@ -32,10 +32,10 @@ const RequestModal = ({ setRequestModalOpen, requestTo }) => {
   const [formData, setFormData] = useState({
     receiver: requestTo,
     amount: '',
-    description: '',
+    remark: '',
   })
 
-  const { receiver, amount, description } = formData
+  const { receiver, amount, remark } = formData
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -49,7 +49,7 @@ const RequestModal = ({ setRequestModalOpen, requestTo }) => {
     const transactionData = {
       receiver,
       amount,
-      description,
+      remark,
     }
     dispatch(sendRequest(transactionData))
   }
@@ -109,12 +109,12 @@ const RequestModal = ({ setRequestModalOpen, requestTo }) => {
                     />
                   </div>
                   <div className='formControl'>
-                    <label htmlFor='description'>Description</label>
+                    <label htmlFor='remark'>Remark</label>
                     <textarea
-                      name='description'
+                      name='remark'
                       id='description'
                       cols='50'
-                      value={description}
+                      value={remark}
                       onChange={onChange}
                       rows='3'
                       maxLength={20}

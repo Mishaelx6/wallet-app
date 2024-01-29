@@ -35,7 +35,7 @@ const userSchema = new mongoose.Schema(
     },
     balance: {
       type: Number,
-      default: 1135064,
+      default: 1000,
     },
     moneySend: {
       type: Number,

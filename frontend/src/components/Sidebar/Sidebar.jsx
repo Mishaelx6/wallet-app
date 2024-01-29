@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import './Sidebar.scss'
+import appLogo from '../../assets/applogo.jpg'
 import DashboardRoundedIcon from '@mui/icons-material/DashboardRounded'
 import PeopleRoundedIcon from '@mui/icons-material/PeopleRounded'
 import AccountBoxRoundedIcon from '@mui/icons-material/AccountBoxRounded'
@@ -23,10 +24,12 @@ const Sidebar = () => {
   return (
     <div className='sidebar'>
       <div className='top'>
+        <img className="applogo" src={appLogo} alt="Dynamic Image" />
         <div className='top'>
           <Link to='/' style={{ textDecoration: 'none', color: '#222222' }}>
-            <span className='logo'>EasyPay</span>
-          </Link>
+            <span className='logo'>FintechBank</span>
+
+             </Link>
         </div>
       </div>
       <hr />

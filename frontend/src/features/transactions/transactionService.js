@@ -1,21 +1,35 @@
-import axios from 'axios'
-import { API_URL } from '../constants'
-// const API_URL = `${import.meta.env.VITE_URL}/api/`
-// const API_URL = 'http://localhost:8080/api/'
-console.log('FROM TRANSCTION', API_URL)
+import axios from 'axios';
+import { API_URL } from '../constants';
+
 const sendMoney = async (transactionData, token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
+  };
+
+  try {
+    const response = await axios.post(
+      API_URL + '/api/transfer',
+      transactionData,
+      config,
+    );
+    if (response.data && response.data.message) {
+     // If there is a message, handle it as needed
+     // For example, dispatch an action to update the UI
+     // and show a toast message
+     return { message: response.data.message };
+   }
+
+
+    return response.data;
+  } catch (error) {
+    // Handle errors here
+    console.error('Error sending money:', error.message);
+// If it's a different error, you can rethrow or return a custom error message
+    throw new Error('Failed to send money');
   }
-  const response = await axios.post(
-    API_URL + '/api/transfer',
-    transactionData,
-    config
-  )
-  return response.data
-}
+};
 
 const getTransactions = async (userId, token) => {
   const config = {
@@ -27,6 +41,7 @@ const getTransactions = async (userId, token) => {
     API_URL + '/api/get_transactions/' + userId,
     config
   )
+
   return response.data
 }
 

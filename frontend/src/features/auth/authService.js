@@ -9,7 +9,9 @@ const login = async (userData) => {
 
   if (response.data) {
     localStorage.setItem('user', JSON.stringify(response.data))
+     console.log('Token after login:', response.data.token); // Add this line
   }
+
   return response.data
 }
 
@@ -22,13 +24,19 @@ const register = async (userData) => {
 }
 
 const getAllUsers = async (token) => {
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const response = await axios.get(API_URL + '/api/users/get_users', config);
+
+    return response.data;
+  } catch (error) {
+    throw error; // Rethrow the error
   }
-  const response = await axios.get(API_URL + '/api/users/get_users', config)
-  return response.data
 }
 
 const logout = () => localStorage.removeItem('user')

@@ -18,7 +18,7 @@ import { optionsDate, optionsTime, USDollar } from '../utils/helpOptions'
 const Send = () => {
   const dispatch = useDispatch()
 
-  const { send, isLoading } = useSelector((state) => state.transact)
+  const { send, isLoading, isSuccess, isError, message} = useSelector((state) => state.transact)
 
   useEffect(() => {
     return () => {
@@ -48,7 +48,7 @@ const Send = () => {
               Transaction Type
             </TableCell>
             <TableCell className='tableCell tableHead'>Amount</TableCell>
-            <TableCell className='tableCell tableHead'>Reference</TableCell>
+            <TableCell className='tableCell tableHead'>status</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -103,8 +103,8 @@ const Send = () => {
                 {USDollar.format(transaction.amount)}
               </TableCell>
               <TableCell className='tableCell'>
-                {transaction.reference}
-              </TableCell>
+              {transaction.amount > 10000 ? 'Pending' : 'Success'}
+               </TableCell>
             </TableRow>
           ))}
         </TableBody>

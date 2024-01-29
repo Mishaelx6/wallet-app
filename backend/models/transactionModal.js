@@ -5,31 +5,22 @@ const transactionSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    sender: {
-      type: mongoose.Schema.Types.ObjectId,
+    remark: {
+      type: String,
       required: true,
-      ref: 'User',
     },
     receiver: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: 'User',
     },
-    transactionType: {
-      type: String,
+    sender: {
+      type: mongoose.Schema.Types.ObjectId,
       required: true,
-      default: 'payment',
-      enum: ['payment', 'transfer', 'deposit', 'refund'],
+      ref: 'User',
     },
-    transactionId: {
-      type: String,
-    },
-    reference: {
-      type: String,
-      required: true,
-      enum: ['transaction ID', 'payment reference'],
-    },
-  },
+
+},
   { timestamps: true }
 )
 module.exports = mongoose.model('Transaction', transactionSchema)

@@ -91,7 +91,7 @@ const List = () => {
                     </div>
                   </TableCell>
                   <TableCell className='tableCell'>{user.email}</TableCell>
-                  <TableCell className='tableCell'>{user.phone}</TableCell>
+                  <TableCell className='tableCell'>{user.phone.slice(5) + "xxxx"}</TableCell>
                   <TableCell className='tableCell'>
                     <span
                       className='send'

@@ -9,14 +9,14 @@ const crypto = require('crypto')
 // @access  Private
 
 const requestAmount = asyncHandler(async (req, res) => {
-  const { receiver, amount, description } = req.body
+  const { sender,receiver, amount, remark } = req.body // check point
   const moneyreceiver = await User.findById(receiver)
   if (req.user._id == receiver || !moneyreceiver) {
     res.status(400)
     throw new Error('request not send')
   } else {
     try {
-      if (!receiver || !amount || !description) {
+      if (!receiver || !amount || !remark) {
         res.status(400)
         throw new Error('please include all fields')
       }
@@ -24,7 +24,7 @@ const requestAmount = asyncHandler(async (req, res) => {
         sender: req.user._id,
         receiver,
         amount,
-        description,
+        remark,
       })
       await request.save()
       await User.findByIdAndUpdate(
@@ -51,7 +51,7 @@ const getAllRequest = asyncHandler(async (req, res) => {
       .populate('sender')
       .populate('receiver')
       .sort({ createdAt: -1 })
-      
+
     if (requests) {
       return res.status(200).json(requests)
     }
@@ -94,7 +94,7 @@ const getRequestReceivedTransaction = asyncHandler(async (req, res) => {
 // @route   POST /api/update-request-status
 // @access  Private
 const updateRequestStats = asyncHandler(async (req, res) => {
-  const { _id, sender, receiver, amount, transactionType, reference, status } =
+  const { _id, sender, receiver, amount,refrence, status } =
     req.body
 
   try {
@@ -103,7 +103,6 @@ const updateRequestStats = asyncHandler(async (req, res) => {
         sender: sender,
         receiver: receiver,
         amount: amount,
-        transactionType: transactionType,
         transactionId: crypto.randomBytes(5).toString('hex'),
         reference: reference,
       })

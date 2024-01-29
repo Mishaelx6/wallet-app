@@ -2,6 +2,14 @@ const mongoose = require('mongoose')
 
 const requestSchema = new mongoose.Schema(
   {
+    amount: {
+      type: Number,
+      required: true,
+    },
+    remark: {
+      type: String,
+      required: true,
+    },
     sender: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
@@ -12,23 +20,12 @@ const requestSchema = new mongoose.Schema(
       required: true,
       ref: 'User',
     },
-    amount: {
-      type: Number,
-      required: true,
-    },
-    description: {
-      type: String,
-      required: true,
-    },
-    status: {
-      type: String,
-      default: 'pending',
-      enum: ['pending', 'accepted', 'cancel'],
-    },
   },
+
   {
     timestamps: true,
-  }
+
+}
 )
 
 module.exports = mongoose.model('Request', requestSchema)

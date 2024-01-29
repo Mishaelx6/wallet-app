@@ -54,6 +54,14 @@ export const getTransactions = createAsyncThunk(
     try {
       const token = thunkAPI.getState().auth.user.token
       return await transactionService.getTransactions(userId, token)
+      if (response.message) {
+        // If there is a message, dispatch a success action with the message
+        return { transactions: response.transactions, message: response.message };
+      } else {
+        // If there is no message, proceed with the transactions as usual
+        return response.transactions;
+      }
+
     } catch (error) {
       const message =
         (error.response &&
@@ -115,7 +123,7 @@ export const transactionSlice = createSlice({
       .addCase(sendMoney.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.transaction = action.payload
+        state.transaction = action.payload;
       })
       .addCase(sendMoney.rejected, (state, action) => {
         state.isLoading = false
@@ -145,7 +153,8 @@ export const transactionSlice = createSlice({
       .addCase(getReceivedTransactions.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.received = action.payload
+
+
       })
       .addCase(getReceivedTransactions.rejected, (state, action) => {
         state.isLoading = false

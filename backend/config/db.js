@@ -1,9 +1,10 @@
 const mongoose = require('mongoose')
 const dotenv = require('dotenv').config()
+const dbUrl = process.env.DB_URL;
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect("mongodb+srv://raisan:raisan123@cluster0.dclozxw.mongodb.net/wallet-app")
+     const conn = await mongoose.connect(dbUrl)
 
     console.log(`MongoDB connected: ${conn.connection.host}`.bgGreen.black.bold.underline)
   } catch (err) {

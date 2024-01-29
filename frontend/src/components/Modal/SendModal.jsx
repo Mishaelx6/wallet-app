@@ -3,36 +3,43 @@ import { toast } from 'react-toastify'
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { sendMoney, reset } from '../../features/transactions/transactionSlice'
+import { sendMoney, reset} from '../../features/transactions/transactionSlice'
 import Loader from '../Loader/Loader'
 
 const SendModal = ({ setSendModalOpen, receiverId }) => {
   const dispatch = useDispatch()
   const { _id } = useSelector((state) => state.auth.user)
-  const { isSuccess, isLoading, isError, message } = useSelector(
+  const { isSuccess, isLoading, isError, message, transaction} = useSelector(
     (state) => state.transact
   )
-
   useEffect(() => {
     if (isError) {
-      toast.error(message)
+      toast.error(message);
     }
+    // if (transaction?.status === 'pending') {
+    //   toast.warning('Transaction is pending');
+    //   setSendModalOpen(false);
+    // }
     if (isSuccess) {
-      toast.success('money send successfully')
-      setSendModalOpen(false)
+      toast.success('Transaction successful');
+      setSendModalOpen(false);
     }
-    dispatch(reset())
-  }, [isError, message, isSuccess])
+
+    dispatch(reset());
+  }, [isError, message, isSuccess, transaction, setSendModalOpen, dispatch]);
+
+
+
 
   const [formData, setFormData] = useState({
     sender: _id,
     receiver: receiverId,
     amount: '',
-    transactionType: '',
     reference: '',
+    remark:""
   })
 
-  const { sender, receiver, amount, transactionType, reference } = formData
+  const { sender, receiver, amount, reference, remark } = formData
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -46,7 +53,7 @@ const SendModal = ({ setSendModalOpen, receiverId }) => {
       sender,
       receiver,
       amount,
-      transactionType,
+      remark,
       reference,
     }
     dispatch(sendMoney(transactionData))
@@ -110,19 +117,7 @@ const SendModal = ({ setSendModalOpen, receiverId }) => {
                       required
                     />
                   </div>
-                  <div className='formControl'>
-                    <label htmlFor='transactionType'>Transaction Type</label>
-                    <select
-                      name='transactionType'
-                      id='transactionType'
-                      value={transactionType}
-                      onChange={onChange}>
-                      <option value='payment'>payment</option>
-                      <option value='transfer'>transfer</option>
-                      <option value='deposit'>deposit</option>
-                      <option value='refund'>refund</option>
-                    </select>
-                  </div>
+
                   <div className='formControl'>
                     <label htmlFor='reference'>Reference</label>
                     <select
@@ -135,6 +130,18 @@ const SendModal = ({ setSendModalOpen, receiverId }) => {
                         payment reference
                       </option>
                     </select>
+                  </div>
+                  <div className='formControl'>
+                    <label htmlFor='remark'>Remark</label>
+                    <input
+                      type='text'
+                      name='remark'
+                      id='remark'
+                      value={remark}
+                      onChange={onChange}
+                      placeholder='Enter Remark'
+                      required
+                    />
                   </div>
                   <button className='btn' type='submit'>
                     Send
