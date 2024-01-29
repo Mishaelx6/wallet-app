@@ -74,7 +74,7 @@ const Login = () => {
               />
             </div>
             <div className='form__control'>
-
+            <input
                 type='password'
                 name='password'
                 id='password'
@@ -85,6 +85,9 @@ const Login = () => {
               />
             </div>
             <button className='btn'>login</button>
+            <p className='small__text'>
+
+            </p>
           </form>
         </section>
       </div>
