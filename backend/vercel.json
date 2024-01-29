@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "index.js", // Adjust the entry point to your Node.js application
-      "use": "@now/node" // Specify the builder for Node.js applications
+      "src": "index.js",
+      "use": "@now/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/index.js" // Adjust the destination to your main server file
+      "dest": "/index.js"
     }
   ],
   "env": {
