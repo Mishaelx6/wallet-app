@@ -7,10 +7,14 @@
   background-color: #ffffff;
   .top {
     @include flexPreset();
-    height: 50px;
+    height:63px;
     .logo {
       font-size: 15px;
       font-weight: 800;
+      @media (max-width: 768px) {
+      font-size: 12px;
+      font-weight:650;
+      }
     }
   }
 
@@ -53,4 +57,7 @@
 }
 .applogo{
   width: 30%;
+  @media (max-width: 768px) {
+  width: 15%;
+  }
 }

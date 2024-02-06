@@ -1,19 +1,25 @@
 @import '../../Helper/helper.scss';
 
 .table {
+  width:50%;
   .tableCell {
     font-family: inherit;
     font-weight: 500;
+    width: 0;
   }
+
   .tableHead {
     @include tableHead();
   }
+
   .cellWrapper {
     @include cellWrapper;
   }
+
   .image {
     @include userImage;
   }
+
   .status {
     @include Status;
     &.Approved {
@@ -28,10 +34,28 @@
   .req {
     @include buttonStyleOne();
   }
+
   .send {
     @include buttonSend();
   }
+
   .req {
     @include buttonRequest();
+  }
+}
+
+@media (max-width: 768px) {
+  .table {
+    display: block;
+    overflow-x: auto;
+  }
+
+
+  .cellWrapper {
+    .image {
+      width: 20px;
+      height: 20px;
+      margin-right: 0.313rem;
+    }
   }
 }

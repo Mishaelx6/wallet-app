@@ -1,4 +1,5 @@
 import './Login.scss'
+import appLogo from '../../assets/applogo.jpg'
 import Spinner from '../../components/Spinner/Spinner'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -47,8 +48,14 @@ const Login = () => {
     return <Spinner />
   }
   return (
+    <div>
+    <div className="logocontainer" >
+    <img className="applogo" src={appLogo} alt="applogo" />
+      <h1 className= "apptext">Fintech Bank</h1>
+    </div>
     <div className='login'>
       <div className='login__container'>
+
         <div className='login__header'>
           <h1>Hello Again</h1>
           <p>Welcome Back! you have been missed</p>
@@ -67,21 +74,26 @@ const Login = () => {
               />
             </div>
             <div className='form__control'>
-              <input
-                type='password'
-                name='password'
-                id='password'
-                value={password}
-                onChange={onChange}
-                placeholder='please enter password'
-                required
-              />
+            <input
+              type='password'
+              name='password'
+              id='password'
+              value={password}
+              onChange={onChange}
+              placeholder='please enter password'
+              required
+            />
             </div>
             <button className='btn'>login</button>
+            <p className='small__text'>
+
+            </p>
           </form>
         </section>
       </div>
     </div>
+    </div>
+
   )
 }
 

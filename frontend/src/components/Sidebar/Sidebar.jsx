@@ -10,8 +10,8 @@ import AttachMoneyRoundedIcon from '@mui/icons-material/AttachMoneyRounded'
 import { logout, reset } from '../../features/auth/authSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-
-const Sidebar = () => {
+import CloseIcon from '@mui/icons-material/Close'
+const Sidebar = ({isSidebarOpen ,toggleSidebar }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { isAdmin } = useSelector((state) => state.auth.user)
@@ -22,10 +22,10 @@ const Sidebar = () => {
   }
 
   return (
-    <div className='sidebar'>
+    <div  className="sidebar">
       <div className='top'>
-        <img className="applogo" src={appLogo} alt="Dynamic Image" />
         <div className='top'>
+        <img className="applogo" src={appLogo} alt="Dynamic Image" />
           <Link to='/' style={{ textDecoration: 'none', color: '#222222' }}>
             <span className='logo'>FintechBank</span>
 
@@ -74,8 +74,13 @@ const Sidebar = () => {
             <LogoutRoundedIcon className='icon' />
             <span>Logout</span>
           </li>
+          <li onClick={toggleSidebar}>
+          <CloseIcon />
+          </li>
+
         </ul>
       </div>
+
     </div>
   )
 }

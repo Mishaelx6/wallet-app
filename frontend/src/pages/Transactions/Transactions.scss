@@ -2,16 +2,27 @@
 
 .transaction {
   display: flex;
-  width: 100%;
+
   .transactionContainer {
     flex: 6;
+    @media (max-width: 768px) {
+    width: 400px;
+    }
     .transactions {
       padding: 1.25rem;
+      @media (max-width: 768px) {
+        width: 450px;
+        padding: 0.3rem;
+      }
       h1 {
+        padding: 20px;
         @include headingOne();
       }
       .transactionsList {
         @include Shadow();
+        @media (max-width: 768px) {
+        width: 550px;
+        }
         .table {
           .tableCell {
             .deposit {
@@ -44,4 +55,11 @@
       }
     }
   }
+}
+.sidebar {
+  display: block;
+}
+
+.showsidebar {
+  display: none;
 }

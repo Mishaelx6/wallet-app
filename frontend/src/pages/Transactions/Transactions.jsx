@@ -11,7 +11,12 @@ import Received from './Received'
 import Send from './Send'
 
 const Transactions = () => {
+
   const [value, setValue] = useState('1')
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen)
+    };
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
@@ -19,13 +24,18 @@ const Transactions = () => {
 
   return (
     <div className='transaction'>
-      <Sidebar />
+    {isSidebarOpen && (
+      <Sidebar
+        className={`sidebar ${isSidebarOpen ? 'showsidebar' : ''}`}
+        isSidebarOpen={isSidebarOpen}
+        toggleSidebar={toggleSidebar}
+      />)}
       <div className='transactionContainer'>
-        <Navbar />
+        <Navbar toggleSidebar={toggleSidebar} />
         <div className='transactions'>
           <h1>Transaction history</h1>
           <div className='transactionsList'>
-            <Box sx={{ width: '100%' }}>
+            <Box sx={{ width: '85%' }}>
               <TabContext value={value}>
                 <Box sx={{ borderColor: 'divider' }}>
                   <TabList

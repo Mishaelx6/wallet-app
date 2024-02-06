@@ -1,5 +1,4 @@
 @import '../../Helper/helper.scss';
-
 .login {
   height: 70vh;
   font-weight: 500;
@@ -10,7 +9,10 @@
     color: $primaryColor;
   }
   .login__container {
-    min-width: 600px;
+    min-width: 300px;
+    max-width: 600px;
+    width: 80%;
+    margin: auto;
   }
   .login__header {
     margin-bottom: 30px;
@@ -58,15 +60,28 @@
   }
 }
 
-.logocontainer{
-  display:flex;
-  width: 40%;
+.logocontainer {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start; // Align at the top left corner
 }
 
-.applogo{
-  width: 20%;
+.applogo {
+  width: 25%; // Adjusted for smaller screens
+  max-width: 150px;
 }
 
-.apptext{
-  margin-top:1.7rem;
+.apptext {
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .applogo {
+    width: 10%; // Adjust the size for larger screens
+    max-width: 200px;
+  }
+
+  .apptext {
+    margin-top: 2.5rem; // Adjust spacing for larger screens
+  }
 }

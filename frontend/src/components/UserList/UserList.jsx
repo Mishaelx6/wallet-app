@@ -65,17 +65,15 @@ const List = () => {
           <Table sx={{ minWidth: 650 }} aria-label='simple table'>
             <TableHead>
               <TableRow>
-                <TableCell className='tableCell tableHead'>Acc No:</TableCell>
+
                 <TableCell className='tableCell tableHead'>Name</TableCell>
-                <TableCell className='tableCell tableHead'>Email</TableCell>
-                <TableCell className='tableCell tableHead'>Phone</TableCell>
                 <TableCell className='tableCell tableHead'>Action</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {users.map((user) => (
                 <TableRow key={user._id}>
-                  <TableCell className='tableCell'>{user._id}</TableCell>
+
                   <TableCell className='tableCell'>
                     <div className='cellWrapper'>
                       {user.image ? (
@@ -90,8 +88,7 @@ const List = () => {
                       {user.name}
                     </div>
                   </TableCell>
-                  <TableCell className='tableCell'>{user.email}</TableCell>
-                  <TableCell className='tableCell'>{user.phone.slice(5) + "xxxx"}</TableCell>
+
                   <TableCell className='tableCell'>
                     <span
                       className='send'
@@ -99,11 +96,7 @@ const List = () => {
                       send
                     </span>
 
-                    <span
-                      className='req'
-                      onClick={() => handleRequestModal(user._id)}>
-                      request
-                    </span>
+                  
                   </TableCell>
                 </TableRow>
               ))}

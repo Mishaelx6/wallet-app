@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import appLogo from '../../assets/applogo.jpg'
 import { Link } from 'react-router-dom'
 import Spinner from '../../components/Spinner/Spinner'
 import { useSelector, useDispatch } from 'react-redux'
@@ -59,12 +60,17 @@ const Register = () => {
   }
 
   return (
+    <div>
+    <div className="logocontainer" >
+    <img className="applogo" src={appLogo} alt="applogo" />
+      <h1 className= "apptext">Fintech Bank</h1>
+    </div>
+
     <div className='login'>
       <div className='login__container'>
         <div className='login__header'>
-          <h1>create an account</h1>
-          <p>Get started with our platform by creating your account.</p>
         </div>
+        <div>
         <section className='login__form'>
           <form onSubmit={onSubmit}>
             <div className='form__control'>
@@ -142,6 +148,8 @@ const Register = () => {
           </form>
         </section>
       </div>
+    </div>
+    </div>
     </div>
   )
 }

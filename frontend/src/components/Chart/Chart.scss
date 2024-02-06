@@ -4,9 +4,14 @@
   box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
   padding: 0.625rem;
   color: gray;
+  @media (max-width: 768px) {
+   flex: 1;  // Adjust the width for smaller screens
+   margin-bottom: 1rem;  // Add some margin for better spacing
+ }
 
   .title {
     margin-bottom: 1.2rem;
+
 
   }
 

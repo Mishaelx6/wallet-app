@@ -4,47 +4,86 @@
   display: flex;
   justify-content: space-between;
   flex: 1;
+
   @include Shadow();
   height: 8.25rem;
+  width: 15rem;
+
+  @media (max-width: 768px) {
+    width: 10rem;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 17px;
+  }
+
   .left,
   .right {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     .title {
       font-weight: 700;
       font-size: 0.875rem;
       color: $widgetTitleColor;
+
+      @media (max-width: 768px) {
+        font-size: 0.8rem;
+      }
     }
+
     .counter {
       font-size: 1.75rem;
       font-weight: 500;
+
+      @media (max-width: 768px) {
+        font-size: 1rem;
+      }
     }
+
     .link {
       font-size: 0.8rem;
       color: $primaryColor;
       font-weight: 500;
       text-decoration: none;
       width: fit-content;
+
       &.link:hover {
         text-decoration: underline;
       }
+
+      @media (max-width: 768px) {
+        font-size: 0.5rem;
+        margin-top: 0.25rem;
+      }
     }
+
     .percentage {
       display: flex;
       align-items: center;
       font-size: 0.875rem;
+
+      @media (max-width: 768px) {
+        font-size: 0.5rem;
+      }
+
       &.positive {
         color: green;
       }
+
       &.negative {
         color: red;
       }
     }
+
     .icon {
       font-size: 1.7rem;
       align-self: flex-end;
       @include paddingAndBorder();
+
+      @media (max-width: 768px) {
+        margin-top: 0.25rem;
+      }
     }
   }
 }

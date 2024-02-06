@@ -9,11 +9,15 @@
   left: 0;
   z-index: 1;
   @include flexPreset();
+
   .sendModalContainer {
     background-color: #fff;
     width: 600px;
     padding: 1.818rem;
     border-radius: 0.625rem;
+    @media (max-width: 768px) {
+      width: 350px;
+      }
     .sendModalContent {
       margin: 4rem 0 4rem;
     }
