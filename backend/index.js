@@ -11,7 +11,11 @@ const fileUpload = require('express-fileupload')
 connectDB()
 
 const app = express()
-app.use(cors())
+app.use(cors({
+  origin: ['https://fintechbank-server.vercel.app/'], // Specify allowed origins
+  methods: ['GET', 'POST'], // Specify allowed HTTP methods
+  credentials: true // Allow credentials in cross-origin requests
+}));
 app.options('*', cors())
 // Enable CORS
 app.use(
