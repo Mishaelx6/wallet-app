@@ -12,7 +12,7 @@ connectDB()
 
 const app = express()
 app.use(cors({
-  origin: ['https://fintechbank-server.vercel.app/'], // Specify allowed origins
+  origin: ['https://fintechbank-m5mmolaph-mishaelx6.vercel.app/'], // Specify allowed origins
   methods: ['GET', 'POST'], // Specify allowed HTTP methods
   credentials: true // Allow credentials in cross-origin requests
 }));
