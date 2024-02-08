@@ -15,7 +15,11 @@ connectDB();
 const app = express();
 
 // Configure CORS
-app.use(cors());
+app.use(cors({
+  origin: ['https://fintech-bank-alpha.vercel.app'], // Specify allowed origins
+  methods: ['GET', 'POST'], // Specify allowed HTTP methods
+  credentials: true // Allow credentials in cross-origin requests
+}));
 
 // Enable CORS preflight options
 app.options('*', cors());
