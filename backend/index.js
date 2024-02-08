@@ -16,7 +16,7 @@ const app = express();
 
 // Configure CORS
 app.use(cors({
-  origin: ['https://fintech-bank-psi.vercel.app'], // Specify allowed origins
+  origin: ['https://finbank-app.vercel.app'], // Specify allowed origins
   methods: ['GET', 'POST'], // Specify allowed HTTP methods
   credentials: true // Allow credentials in cross-origin requests
 }));
