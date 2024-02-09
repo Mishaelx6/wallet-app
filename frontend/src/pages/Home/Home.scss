@@ -3,6 +3,15 @@
 .home {
   display: flex;
   width: 100%;
+   @media (max-width: 768px) {
+       *,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+      }
 
   .homeContainer {
     flex: 6;
