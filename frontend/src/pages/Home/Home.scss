@@ -14,13 +14,8 @@
 
       @media (max-width: 768px) {
         margin-top: 20px;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        width: 60%;
-        margin-left: 100px;
-        grid-gap: 100px;
+        flex-wrap: wrap; /* Allows items to wrap to the next line */
       }
-    }
 
     .charts {
       display: flex;
