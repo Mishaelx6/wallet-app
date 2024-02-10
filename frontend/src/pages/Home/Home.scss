@@ -17,10 +17,8 @@
 
       @media (max-width: 768px) {
          margin-top: 20px;
-        padding : 0.5rem;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: 30px;
       }
     }
 
