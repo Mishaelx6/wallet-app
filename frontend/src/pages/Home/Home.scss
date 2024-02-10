@@ -14,9 +14,12 @@
       gap: 1.25rem;
 
       @media (max-width: 768px) {
-        margin-top: 20px;
-        display: block;
-        width: 50%;
+         margin-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 60%;
+        margin-left: 100px;
+        grid-gap: 70px;
       }
     }
 
@@ -25,9 +28,7 @@
       padding: 1.25rem;
       gap: 1.25rem;
       @media (min-width: 768px) {
-         padding: 0;
         width: 100%;
-        align-self: center;
         display: block;
       }
     }
