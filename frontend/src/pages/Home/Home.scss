@@ -17,8 +17,7 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         width: 60%;
-        margin-left: 100px;
-        grid-gap: 100px;
+        grid-gap: 50px;
       }
     }
 
@@ -26,7 +25,8 @@
       display: flex;
       padding: 1.25rem;
       gap: 1.25rem;
-      @media (min-width: 400px) {
+      @media (min-width: 768px) {
+         padding: 0;
         width: 100%;
         align-self: center;
         display: block;
