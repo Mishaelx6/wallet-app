@@ -1,54 +1,69 @@
-@import '../../Helper/helper.scss';
-
-body {
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-}
-
 .home {
-    display: flex;
-    flex-direction: column; /* Ensure proper layout in mobile view */
+  display: flex;
+  width: 100%;
+   @media (max-width: 768px) {
+       *,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+      }
 
-    .homeContainer {
-        flex: 1; /* Take up remaining vertical space */
-        display: flex;
-        flex-direction: column; /* Ensure proper layout in mobile view */
-        align-items: center; /* Center content horizontally */
+  .homeContainer {
+    flex: 6;
 
-        .widgets {
-            display: flex;
-            flex-wrap: wrap; /* Allow widgets to wrap to the next line if needed */
-            justify-content: center; /* Center widgets horizontally */
-            gap: 20px; /* Adjust spacing between widgets */
+    .widgets {
+      display: flex;
+      padding: 1.25rem;
+      gap: 1.25rem;
 
-            .widget {
-                width: calc(50% - 20px); /* Two widgets per row */
-                max-width: 300px; /* Limit widget width */
-            }
-        }
-
-        .charts {
-            width: 100%; /* Ensure charts take up full width */
-            max-width: 100%; /* Ensure charts don't exceed screen width */
-            margin-top: 20px; /* Add some spacing */
-        }
-
-        .listContainer {
-            width: 100%;
-            max-width: 600px; /* Limit list container width */
-            margin-top: 20px; /* Add some spacing */
-        }
+      @media (max-width: 768px) {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 60%;
+        margin-left: 100px;
+        grid-gap: 100px;
+      }
     }
+
+    .charts {
+      display: flex;
+      padding: 1.25rem;
+      gap: 1.25rem;
+      @media (min-width: 400px) {
+        width: 100%;
+        align-self: center;
+        display: block;
+      }
+    }
+
+    .listContainer {
+      @include Shadow();
+      width: 100%;
+
+      .listTitle {
+        font-weight: 500;
+        color: gray;
+        margin-bottom: 0.938rem;
+      }
+    }
+
+    // Add styles for content when sidebar is not open
+    .content {
+      flex: 1; // Adjust this as needed
+    }
+  }
 }
 
-@media (min-width: 768px) {
-    .home .homeContainer {
-        flex-direction: column; /* Switch to horizontal layout for larger screens */
-
-        .widgets {
-            .widget {
-                width: calc(50% - 20px); /* Two widgets per row */
-            }
-        }
-    }
+.sidebar {
+  display: block;
+transition: transform 0.5s ease; 
 }
+
+.showsidebar {
+  display: none;
+}
+
