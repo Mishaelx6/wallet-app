@@ -15,11 +15,11 @@
 
       @media (max-width: 768px) {
          margin-top: 20px;
+        padding : 0;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         width: 60%;
-        margin-left: 100px;
-        grid-gap: 70px;
+        grid-gap: 60px;
       }
     }
 
@@ -30,12 +30,13 @@
       @media (min-width: 768px) {
         width: 100%;
         display: block;
+        padding: 1.25rem;0;
       }
     }
 
     .listContainer {
       @include Shadow();
-      width: 100%;
+      width: 50;
 
       .listTitle {
         font-weight: 500;
