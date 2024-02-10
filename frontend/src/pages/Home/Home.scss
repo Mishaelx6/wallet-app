@@ -3,6 +3,7 @@
 .home {
   display: flex;
   width: 100%;
+  box-sizing: border-box;
 
   .homeContainer {
     flex: 6;
