@@ -2,7 +2,6 @@
 
 .home {
   display: flex;
-  width: 100%;
   box-sizing: border-box;
 
   .homeContainer {
@@ -18,7 +17,6 @@
         padding : 0;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        width: 60%;
         grid-gap: 60px;
       }
     }
@@ -28,9 +26,8 @@
       padding: 1.25rem;
       gap: 1.25rem;
       @media (min-width: 768px) {
-        width: 100%;
         display: block;
-        padding: 1.25rem;0;
+        padding: 0;
       }
     }
 
