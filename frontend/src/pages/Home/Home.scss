@@ -2,23 +2,23 @@
 
 .home {
   display: flex;
-  box-sizing: border-box;
-  
+  width: 100%;
 
   .homeContainer {
-    flex:6;
-     @media (max-width: 768px) {
-        flex: 1;
-      }
- .widgets {
+    flex: 6;
+
+    .widgets {
       display: flex;
       padding: 1.25rem;
       gap: 1.25rem;
 
       @media (max-width: 768px) {
-         margin-top: 20px;
+        margin-top: 20px;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        width: 60%;
+        margin-left: 100px;
+        grid-gap: 100px;
       }
     }
 
@@ -26,14 +26,16 @@
       display: flex;
       padding: 1.25rem;
       gap: 1.25rem;
-      @media (min-width: 768px) {
-        padding: 0;
+      @media (min-width: 400px) {
+        width: 100%;
+        align-self: center;
+        display: block;
       }
     }
 
     .listContainer {
       @include Shadow();
-      width: 50%;
+      width: 100%;
 
       .listTitle {
         font-weight: 500;
