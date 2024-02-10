@@ -1,6 +1,7 @@
 @import '../../Helper/helper.scss';
 
 .widget {
+ 
   display: flex;
   justify-content: space-between;
   flex: 1;
@@ -10,7 +11,7 @@
   width: 15rem;
 
   @media (max-width: 768px) {
-    width: 10rem;
+     max-width: calc(50% - 1.25rem); /* Adjusted width for two items per row */
     flex-direction: column;
     align-items: flex-start;
     line-height: 17px;
