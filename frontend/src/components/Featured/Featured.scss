@@ -5,8 +5,10 @@
   padding: 0.625rem;
 
   @media (max-width: 768px) {
+   max-width: 360px;
    flex: 1;  // Adjust the width for smaller screens
    margin-bottom: 1rem;  // Add some margin for better spacing
+
  }
 
 
@@ -56,7 +58,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-    
+
 
       .item {
         text-align: center;
@@ -87,3 +89,4 @@
 
   }
 }
+
