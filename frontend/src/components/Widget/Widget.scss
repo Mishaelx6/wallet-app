@@ -1,7 +1,6 @@
 @import '../../Helper/helper.scss';
 
 .widget {
- 
   display: flex;
   justify-content: space-between;
   flex: 1;
@@ -11,10 +10,13 @@
   width: 15rem;
 
   @media (max-width: 768px) {
-     max-width: calc(50% - 1.25rem); /* Adjusted width for two items per row */
     flex-direction: column;
     align-items: flex-start;
-    line-height: 17px;
+    line-height: 23px;
+
+    @include Shadow();
+    height: 9.5rem;
+    width: 10rem;
   }
 
   .left,
@@ -28,18 +30,13 @@
       font-size: 0.875rem;
       color: $widgetTitleColor;
 
-      @media (max-width: 768px) {
-        font-size: 0.8rem;
-      }
+
     }
 
     .counter {
       font-size: 1.75rem;
       font-weight: 500;
 
-      @media (max-width: 768px) {
-        font-size: 1rem;
-      }
     }
 
     .link {
@@ -53,10 +50,7 @@
         text-decoration: underline;
       }
 
-      @media (max-width: 768px) {
-        font-size: 0.5rem;
-        margin-top: 0.25rem;
-      }
+
     }
 
     .percentage {
@@ -64,9 +58,6 @@
       align-items: center;
       font-size: 0.875rem;
 
-      @media (max-width: 768px) {
-        font-size: 0.5rem;
-      }
 
       &.positive {
         color: green;
@@ -82,9 +73,6 @@
       align-self: flex-end;
       @include paddingAndBorder();
 
-      @media (max-width: 768px) {
-        margin-top: 0.25rem;
-      }
     }
   }
 }
