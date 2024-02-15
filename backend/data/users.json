@@ -9,7 +9,7 @@
     "balance": 5000,
     "address": "123 Main St, Anytown USA",
     "isVerified": true,
-    "isAdmin": false
+    "isAdmin": true
   },
   {
     "name": "Julia Foster",
