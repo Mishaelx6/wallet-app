@@ -86,7 +86,7 @@ const Login = () => {
             </div>
             <button className='btn'>login</button>
             <p className='small__text'>
-              Not registered yet?<Link to='/register'> Create an account</Link>{' '}
+              Not registered yet?<Link> Create an account</Link>{' '}
             </p>
           </form>
         </section>
